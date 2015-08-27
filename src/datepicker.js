@@ -55,6 +55,11 @@ define(
                 $(element)[widgetName]('setDate', value);
             }
 
+            $(element).change(function (data) {
+                options.value($(this).val());
+            })
+
+
             if (ko.isObservable(options.value)) {
                 subscription = options.value.subscribe(function (newValue) {
                     $(element)[widgetName]('setDate', newValue);
