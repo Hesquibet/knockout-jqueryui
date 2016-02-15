@@ -56,7 +56,10 @@ define(
             }
 
             $(element).change(function (data) {
-                options.value($(this).val());
+                var format, date;
+                format = $(element)[widgetName]('option', 'dateFormat');
+                date = $.datepicker.parseDate(format, $(this).val());
+                options.value(date);
             })
 
 
